@@ -12,7 +12,9 @@ public class EmployeeMapper {
                 employee.getDateOfBirth(),
                 employee.getDateOfEntry(),
                 employee.getGender(),
+                employee.getPostalCode(),
                 employee.getAddress(),
+                employee.getSubAddress(),
                 employee.getDepartment(),
                 employee.getEmail(),
                 employee.getPhoneNo()
@@ -26,7 +28,9 @@ public class EmployeeMapper {
                 dto.getDateOfBirth(),
                 dto.getDateOfEntry(),
                 dto.getGender(),
+                dto.getPostalCode(),
                 dto.getAddress(),
+                dto.getSubAddress(),
                 dto.getDepartment(),
                 dto.getEmail(),
                 dto.getPhoneNo()

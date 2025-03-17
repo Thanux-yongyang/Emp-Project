@@ -18,7 +18,9 @@ public class EmployeeDto {
     private Date dateOfBirth;
     private Date dateOfEntry;
     private String gender;
+    private String postalCode;
     private String address;
+    private String subAddress;
     private String department;
     private String email;
     private String phoneNo;

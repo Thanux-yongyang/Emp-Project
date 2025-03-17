@@ -28,8 +28,12 @@ public class Employee {
     private Date dateOfEntry;
     @Column(name = "gender", nullable = false)
     private String gender;
+    @Column(name="postal_code", nullable = false)
+    private String postalCode;
     @Column(name = "address", nullable = false)
     private String address;
+    @Column(name = "sub_address", nullable = false)
+    private String subAddress;
     @Column(name = "department", nullable = false)
     private String department;
     @Column(name = "email", nullable = false)
