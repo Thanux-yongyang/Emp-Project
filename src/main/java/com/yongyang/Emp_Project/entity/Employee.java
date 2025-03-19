@@ -22,8 +22,10 @@ public class Employee {
     private String firstName;
     @Column(name = "last_name", nullable = false)
     private String lastName;
+    @Temporal(TemporalType.DATE)
     @Column(name = "date_of_birth", nullable = false)
     private Date dateOfBirth;
+    @Temporal(TemporalType.DATE)
     @Column(name = "date_of_entry", nullable = false)
     private Date dateOfEntry;
     @Column(name = "gender", nullable = false)

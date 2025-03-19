@@ -8,7 +8,7 @@ public class EmployeeMapper {
         return new EmployeeDto(
                 employee.getId(),
                 employee.getFirstName(),
-                employee.getFirstName(),
+                employee.getLastName(),
                 employee.getDateOfBirth(),
                 employee.getDateOfEntry(),
                 employee.getGender(),
@@ -24,7 +24,7 @@ public class EmployeeMapper {
         return new Employee(
                 dto.getId(),
                 dto.getFirstName(),
-                dto.getFirstName(),
+                dto.getLastName(),
                 dto.getDateOfBirth(),
                 dto.getDateOfEntry(),
                 dto.getGender(),
