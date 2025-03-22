@@ -1,5 +1,5 @@
 # Stage 1: Build the application
-FROM maven:3.8.1-openjdk-21-slim AS build
+FROM maven:3.9.9-eclipse-temurin-21-jammy AS BUILD_IMAGE
 WORKDIR /app
 
 # Copy the pom.xml and dependencies first to leverage Docker cache
@@ -11,11 +11,11 @@ COPY . .
 RUN mvn clean package -DskipTests
 
 # Stage 2: Run the application
-FROM openjdk:17-jdk-slim
+FROM tomcat:10-jdk21
 WORKDIR /app
 
 # Copy the JAR file generated from the build stage
-COPY --from=build /app/target/*.jar app.jar
+COPY --from=BUILD_IMAGE /app/target/*.jar app.jar
 
 # Expose the port that the app will run on (default Spring Boot port is 8080)
 EXPOSE 8080
