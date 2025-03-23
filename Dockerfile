@@ -11,7 +11,7 @@ COPY . .
 RUN mvn clean package -DskipTests
 
 # Stage 2: Run the application
-FROM tomcat:10-jdk21
+FROM eclipse-temurin:21-jdk-alpine
 WORKDIR /app
 
 # Copy the JAR file generated from the build stage
