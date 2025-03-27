@@ -1,24 +1,12 @@
-# Stage 1: Build the application
-FROM maven:3.9.9-eclipse-temurin-21-jammy AS BUILD_IMAGE
+# backend/Dockerfile
+FROM maven:3.9.9-eclipse-temurin-21-jammy AS build
 WORKDIR /app
-
-# Copy the pom.xml and dependencies first to leverage Docker cache
-COPY pom.xml ./
-RUN mvn dependency:go-offline
-
-# Copy the entire project to the container and build it
-COPY . .
+COPY pom.xml .
+COPY src ./src
 RUN mvn clean package -DskipTests
 
-# Stage 2: Run the application
-FROM eclipse-temurin:21-jdk-alpine
+FROM eclipse-temurin:21-jre-jammy
 WORKDIR /app
-
-# Copy the JAR file generated from the build stage
-COPY --from=BUILD_IMAGE /app/target/*.jar app.jar
-
-# Expose the port that the app will run on (default Spring Boot port is 8080)
+COPY --from=build /app/target/*.jar ./app.jar
 EXPOSE 8080
-
-# Run the application
-CMD ["java", "-jar", "app.jar"]
+ENTRYPOINT ["java", "-jar", "app.jar"]
